@@ -47,8 +47,9 @@ module Supercamp
 
     attr_accessor :options
 
-    def initialize
+    def initialize(&block)
       @options = {}
+      instance_eval(&block)
     end
 
 

@@ -3,16 +3,17 @@ require "supercamp/criteria"
 require "supercamp/version"
 
 module Supercamp
+  extend self
 
-  class << self
+  attr_accessor :config
 
-    attr_accessor :config
+  def configure
+    self.config ||= Configuration.new
+    yield config
+  end
 
-    def configure
-      self.config ||= Configuration.new
-      yield config
-    end
-
+  def search(&block)
+    Criteria.new &block
   end
 
 end
