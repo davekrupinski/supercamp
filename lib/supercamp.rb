@@ -1,5 +1,18 @@
+require "supercamp/configuration"
+require "supercamp/criteria"
 require "supercamp/version"
 
 module Supercamp
-  # Your code goes here...
+
+  class << self
+
+    attr_accessor :config
+
+    def configure
+      self.config ||= Configuration.new
+      yield config
+    end
+
+  end
+
 end
