@@ -1,14 +1,18 @@
+require "typhoeus"
+
 require "supercamp/configuration"
 require "supercamp/criteria"
+require "supercamp/request"
 require "supercamp/version"
 
 module Supercamp
   extend self
 
-  attr_accessor :config
+  def config
+    @config ||= Configuration.new
+  end
 
   def configure
-    self.config ||= Configuration.new
     yield config
   end
 

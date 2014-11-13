@@ -2,8 +2,7 @@ module Supercamp
 
   class Configuration
 
-    attr_accessor :login
-    attr_accessor :password
+    attr_accessor :api_key
 
     def configure
       yield self

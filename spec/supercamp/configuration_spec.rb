@@ -12,13 +12,11 @@ describe Supercamp::Configuration do
 
       before do
         configuration.configure do |config|
-          config.login    = "super"
-          config.password = "camp"
+          config.api_key  = "super"
         end
       end
 
-      it { expect(configuration.login).to eq "super" }
-      it { expect(configuration.password).to eq "camp" }
+      it { expect(configuration.api_key).to eq "super" }
 
     end
 

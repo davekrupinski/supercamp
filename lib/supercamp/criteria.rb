@@ -49,7 +49,7 @@ module Supercamp
 
     def initialize(&block)
       @options = {}
-      instance_eval(&block)
+      instance_eval(&block) if block_given?
     end
 
 
