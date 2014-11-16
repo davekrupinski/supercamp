@@ -8,8 +8,8 @@ module Supercamp
       yield self
     end
 
-    def endpoint
-      "http://api.amp.active.com/camping/campgrounds"
+    def base_url
+      "http://api.amp.active.com/camping"
     end
 
   end

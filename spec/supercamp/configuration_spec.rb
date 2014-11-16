@@ -35,9 +35,9 @@ describe Supercamp::Configuration do
   end
   
 
-  describe "#endpoint" do
+  describe "#base_url" do
 
-    it { expect(configuration.endpoint).to eq "http://api.amp.active.com/camping/campgrounds" }
+    it { expect(configuration.base_url).to eq "http://api.amp.active.com/camping" }
 
   end
 
