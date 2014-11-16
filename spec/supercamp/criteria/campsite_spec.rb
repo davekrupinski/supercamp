@@ -6,6 +6,16 @@ describe Supercamp::Criteria::Campsite do
     Supercamp::Criteria::Campsite.new
   end
 
+  describe "#endpoint" do
+
+    it do
+      expect(criteria.endpoint).to eq \
+        "http://api.amp.active.com/camping/campsites"
+    end
+
+  end
+
+
   describe "#site_type" do
 
     it "returns Supercamp::Criteria::Campsite" do

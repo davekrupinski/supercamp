@@ -26,11 +26,4 @@ describe Supercamp::Campground do
 
   end
 
-
-  describe "#endpoint" do
-
-    it { expect(Supercamp::Campground.endpoint).to eq "campgrounds" }
-
-  end
-
 end

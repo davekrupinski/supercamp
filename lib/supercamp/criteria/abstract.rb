@@ -11,8 +11,8 @@ module Supercamp
       end
 
       def endpoint
-        # override to give actual endpoints in subclasses
-        Supercamp.config.base_url
+        name = self.class.to_s.split("::").last.downcase
+        "#{Supercamp.config.base_url}/#{name}s"
       end
 
       def query
@@ -21,7 +21,12 @@ module Supercamp
       end
 
       def response(query=query)
+        # TODO: Support Timeout
         query.run.response
+      end
+
+      def results
+
       end
 
     private

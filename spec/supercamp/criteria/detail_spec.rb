@@ -6,6 +6,16 @@ describe Supercamp::Criteria::Detail do
     Supercamp::Criteria::Detail.new
   end
 
+  describe "#endpoint" do
+
+    it do
+      expect(criteria.endpoint).to eq \
+        "http://api.amp.active.com/camping/details"
+    end
+
+  end
+
+
   describe "#contract_code" do
 
     it "returns Supercamp::Criteria::Detail" do

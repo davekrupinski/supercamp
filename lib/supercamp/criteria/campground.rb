@@ -19,7 +19,6 @@ module Supercamp
         "winter_activities" => 4013
       }
 
-
       # landmarkLat, landmarkLong (latitude/longitude)
       # 
       # These two parameters allow for campground searches around a fixed geo-point.

@@ -7,10 +7,6 @@ module Supercamp
       Criteria::Campground.new &block
     end
 
-    def endpoint
-      "campgrounds"
-    end
-
   end
 
 end

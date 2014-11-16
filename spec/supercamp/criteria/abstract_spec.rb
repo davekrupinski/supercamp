@@ -16,10 +16,15 @@ describe Supercamp::Criteria::Abstract do
   end
 
 
+  describe "#endpoint" do
+    it { expect(subject.endpoint).to eq "http://api.amp.active.com/camping/abstracts" }
+  end
+
+
   describe "#query" do
 
     let :base_url do
-      "http://api.amp.active.com/camping?api_key=z"
+      "http://api.amp.active.com/camping/abstracts?api_key=z"
     end
 
     context "w/ valid single Supercamp::Criteria" do
@@ -83,6 +88,11 @@ describe Supercamp::Criteria::Abstract do
       pending
     end
 
+  end
+
+
+  describe "#results", :vcr do
+    pending
   end
 
 end
