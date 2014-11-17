@@ -13,11 +13,14 @@ describe Supercamp do
 
   describe ".configure" do
  
-    it do
-      Supercamp.configure {}
+    it "allows options to be set through block" do
+      expect(Supercamp.config).to receive(:api_key=).with("yes")
+      expect(Supercamp.config).to receive(:timeout=).with(10000)
+      Supercamp.configure do |config|
+        config.api_key = "yes"
+        config.timeout = 10000
+      end
     end
-
-    pending
 
   end
 
