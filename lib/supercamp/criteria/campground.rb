@@ -46,8 +46,8 @@ module Supercamp
       # the API performs a string-match query for parks containing 
       # the character string specified. 
       #
-      def name(city)
-        merge_option(:pname, city)
+      def name(park)
+        merge_option(:pname, park)
         self
       end
 
