@@ -46,6 +46,7 @@ Supercamp.campgrounds.state("CA").amenity(:biking)
 Supercamp.campgrounds.search do
     state   "CA"
     amenity "biking"
+    has     "water", :pets, "sewer"
 end
 ```
 
