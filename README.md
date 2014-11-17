@@ -48,3 +48,31 @@ Supercamp.campgrounds.search do
     amenity "biking"
 end
 ```
+
+## Campsite API
+
+The campgrounds interface supports:
+* **site_type** (rv, cabin, lodging, tent, trailer, group_site, day_use, horse_site, or boat_site)
+* **arrival** (mm/dd/yyyy)
+* **nights** (integer) *used with *arrival* to specify duration of stay*
+* **min_equip_length** (feet)
+* **people** (integer)
+* **min_elec_amps** (15, 20, 30, or 50)
+
+## Camground API
+Supports all options from **Campsite API** with additional support for:
+* **geo** (lat, long)
+* **state** (string) *2 character abbreviation*
+* **name** (string) *Name of Park*
+* **amenity** (biking, boating, equipment_rentals, fishing, golf, hiking, horseback_riding, hunting, rec_activities, scenic_trails, sports, beach_or_water, or winter_activities)
+* **has** (Multiple: water, sewer, pull, pets, waterfront)
+
+## Details API
+##### Note: Both Parameters are Required
+* contract_code (string) *contract_id returned from Campground API Search*
+* id (string) *facility_id returned from Campground API Search*
+
+## TODO
+* Configuration Validation
+* Search Parameter Validation
+* Search Lookup Caching
