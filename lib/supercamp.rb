@@ -1,12 +1,13 @@
-require "typhoeus"
+require 'typhoeus'
 
-require "supercamp/campground"
-require "supercamp/configuration"
-require "supercamp/version"
-require "supercamp/criteria/abstract"
-require "supercamp/criteria/campsite"
-require "supercamp/criteria/campground"
-require "supercamp/criteria/detail"
+require 'supercamp/configuration'
+require 'supercamp/error'
+require 'supercamp/response'
+require 'supercamp/version'
+require 'supercamp/criteria/abstract'
+require 'supercamp/criteria/campsite'
+require 'supercamp/criteria/campground'
+require 'supercamp/criteria/detail'
 
 module Supercamp
   extend self
@@ -17,6 +18,18 @@ module Supercamp
 
   def configure
     yield config
+  end
+
+  def campsites
+    Supercamp::Criteria::Campsite.new
+  end
+
+  def campgrounds
+    Supercamp::Criteria::Campground.new
+  end
+
+  def details
+    Supercamp::Criteria::Detail.new
   end
 
 end

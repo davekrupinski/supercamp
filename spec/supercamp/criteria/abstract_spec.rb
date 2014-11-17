@@ -2,10 +2,32 @@ require "spec_helper"
 
 describe Supercamp::Criteria::Abstract do
 
-  before do
-    Supercamp.configure do |config|
-      config.api_key = "z"
+  describe ".search" do
+
+    context "Supercamp::Criteria::Campground" do
+
+      it "returns a Supercamp::Criteria" do
+        expect(Supercamp::Criteria::Campground.search {}).to be_instance_of Supercamp::Criteria::Campground
+      end
+
+      context "w/ supplied options" do
+
+        let :criteria do
+          Supercamp::Criteria::Campground.search do
+            name  "Camp Cool"
+            has   :pets
+          end
+        end
+
+        it "please?" do
+          expect(criteria.options).to eq \
+            ({ "pname" => "Camp Cool", "pets" => 3010 })
+        end
+
+      end
+
     end
+
   end
 
 
@@ -16,12 +38,46 @@ describe Supercamp::Criteria::Abstract do
   end
 
 
+  describe "#search" do
+
+    context "Supercamp::Criteria::Campground" do
+
+      subject { Supercamp::Criteria::Campground.new }
+
+      it "returns a Supercamp::Criteria" do
+        expect(subject.search {}).to be_instance_of Supercamp::Criteria::Campground
+      end
+
+      context "w/ supplied options" do
+
+        let :criteria do
+          subject.search do
+            name  "Camp Cool"
+            has   :pets
+          end
+        end
+
+        it "please?" do
+          expect(criteria.options).to eq \
+            ({ "pname" => "Camp Cool", "pets" => 3010 })
+        end
+
+      end
+
+    end
+
+  end
+
   describe "#endpoint" do
     it { expect(subject.endpoint).to eq "http://api.amp.active.com/camping/abstracts" }
   end
 
 
   describe "#query" do
+
+    before do
+      expect(Supercamp.config).to receive(:api_key).and_return "z"
+    end
 
     let :base_url do
       "http://api.amp.active.com/camping/abstracts?api_key=z"
@@ -78,21 +134,44 @@ describe Supercamp::Criteria::Abstract do
   end
 
 
-  describe "#response", :vcr do
+  describe "#response" do
 
     context "w/ valid response" do
-      pending
+
+      subject do
+        Supercamp::Criteria::Campground.search do 
+          state     "CA"
+          site_type "tent"
+          people    4
+        end
+      end
+
+      it "returns a Supercamp::Response" do
+        VCR.use_cassette("campground ca tent") do
+          expect(subject.response).to be_instance_of Supercamp::Response
+        end
+      end
+
     end
 
     context "w/ invalid response" do
-      pending
+
+      before do
+        expect(Supercamp.config).to receive(:api_key).and_return nil
+      end
+
+      subject do
+        Supercamp.campgrounds.search.state("CA")
+      end
+
+      it "returns a Supercamp::Error" do
+        VCR.use_cassette("campground no api key") do
+          expect { subject.response }.to raise_error Supercamp::Error
+        end
+      end
+
     end
 
-  end
-
-
-  describe "#results", :vcr do
-    pending
   end
 
 end

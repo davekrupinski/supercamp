@@ -3,6 +3,11 @@ module Supercamp
   class Configuration
 
     attr_accessor :api_key
+    attr_accessor :timeout
+
+    def initialize
+      @timeout ||= 5
+    end
 
     def configure
       yield self

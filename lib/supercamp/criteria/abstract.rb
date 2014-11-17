@@ -10,6 +10,18 @@ module Supercamp
         instance_eval(&block) if block_given?
       end
 
+      class << self
+
+        def search(&block)
+          new &block
+        end
+
+      end
+
+      def search(&block)
+        self.class.search &block
+      end
+
       def endpoint
         name = self.class.to_s.split("::").last.downcase
         "#{Supercamp.config.base_url}/#{name}s"
@@ -17,16 +29,16 @@ module Supercamp
 
       def query
         opts = { api_key: Supercamp.config.api_key }.merge(options)
-        Typhoeus::Request.new(endpoint, params: opts)
+        Typhoeus::Request.new(endpoint, timeout: Supercamp.config.timeout, params: opts)
       end
 
       def response(query=query)
-        # TODO: Support Timeout
-        query.run.response
-      end
-
-      def results
-
+        response = query.run
+        if response.code == 200
+          Supercamp::Response.new response
+        else
+          raise Supercamp::Error.new self, response
+        end
       end
 
     private

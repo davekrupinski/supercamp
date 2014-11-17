@@ -10,6 +10,7 @@ describe Supercamp do
 
   end
 
+
   describe ".configure" do
  
     it do
@@ -17,6 +18,27 @@ describe Supercamp do
     end
 
     pending
+
+  end
+
+
+  describe ".campsites" do
+
+    it { expect(Supercamp.campsites).to be_instance_of Supercamp::Criteria::Campsite }
+
+  end
+
+
+  describe ".campgrounds" do
+
+    it { expect(Supercamp.campgrounds).to be_instance_of Supercamp::Criteria::Campground }
+
+  end
+
+
+  describe ".details" do
+
+    it { expect(Supercamp.details).to be_instance_of Supercamp::Criteria::Detail }
 
   end
 

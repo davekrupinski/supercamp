@@ -19,12 +19,13 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "typhoeus", "~> 0.6.0"
+  spec.add_dependency "oga",      "~> 0.1.0"
+  spec.add_dependency "hashr",    "~> 0.0.0"
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "dotenv", "~> 1.0.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.1.0"
   spec.add_development_dependency "vcr", "~> 2.9.0"
-  spec.add_development_dependency "webmock", "~> 1.20.0"
   spec.add_development_dependency "guard-rspec", "~> 4.3.0"
 end
