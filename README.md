@@ -69,8 +69,8 @@ Supports all options from **Campsite API** with additional support for:
 
 ## Details API
 ##### Note: Both Parameters are Required
-* contract_code (string) *contract_id returned from Campground API Search*
-* id (string) *facility_id returned from Campground API Search*
+* **contract_code** (string) *contract_id returned from Campground API Search*
+* **id** (string) *facility_id returned from Campground API Search*
 
 ## TODO
 * Configuration Validation
