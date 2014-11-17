@@ -3,6 +3,9 @@ require 'supercamp'
 require 'vcr'
 require 'dotenv'
 
+require 'coveralls'
+Coveralls.wear!
+
 RSpec.configure do |config|
 
   Dotenv.load
