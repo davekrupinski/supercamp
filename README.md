@@ -1,4 +1,4 @@
-Supercamp
+Supercamp [![Build Status](https://travis-ci.org/davekrupinski/supercamp.svg?branch=master)](https://travis-ci.org/davekrupinski/supercamp.svg?branch=master) [![Coverage Status](https://img.shields.io/coveralls/davekrupinski/supercamp.svg)](https://coveralls.io/r/davekrupinski/supercamp?branch=master)
 ============
 
 Wrapper for the Active Network Campground API, and probably a bad Supertramp joke at the same time.
