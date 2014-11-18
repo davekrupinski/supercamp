@@ -6,5 +6,5 @@ gemspec
 gem "rake"
 
 group :test do
-  gem "coveralls", require: false
+  gem "coveralls", "~> 0.7.0", require: false
 end
