@@ -19,9 +19,13 @@ describe Supercamp::Criteria::Abstract do
           end
         end
 
-        it "please?" do
+        it "sets API options hash" do
           expect(criteria.options).to eq \
             ({ "pname" => "Camp Cool", "pets" => 3010 })
+        end
+
+        it "freezes :options" do
+          expect(criteria.options).to be_frozen
         end
 
       end
@@ -57,7 +61,7 @@ describe Supercamp::Criteria::Abstract do
           end
         end
 
-        it "please?" do
+        it "sets API :options" do
           expect(criteria.options).to eq \
             ({ "pname" => "Camp Cool", "pets" => 3010 })
         end
@@ -67,6 +71,7 @@ describe Supercamp::Criteria::Abstract do
     end
 
   end
+
 
   describe "#endpoint" do
     it { expect(subject.endpoint).to eq "http://api.amp.active.com/camping/abstracts" }
@@ -87,7 +92,7 @@ describe Supercamp::Criteria::Abstract do
 
       let :criteria do
         subject.tap do |s|
-          s.options = { pname: "Jolly Good" }
+          expect(s).to receive(:options).and_return({ pname: "Jolly Good" })
         end
       end
 
@@ -106,7 +111,8 @@ describe Supercamp::Criteria::Abstract do
 
       let :criteria do
         subject.tap do |s|
-          s.options = { pname: "Jolly Good", amenity: 4001, water: 3007, pets: 3010 }
+          expect(s).to receive(:options).and_return \
+            ({ pname: "Jolly Good", amenity: 4001, water: 3007, pets: 3010 })
         end
       end
 
@@ -121,7 +127,8 @@ describe Supercamp::Criteria::Abstract do
 
       let :criteria do
         subject.tap do |s|
-          s.options = { pname: "$$%So**??Bad" }
+          expect(s).to receive(:options).and_return \
+            ({ pname: "$$%So**??Bad" })
         end
       end
 
@@ -152,6 +159,44 @@ describe Supercamp::Criteria::Abstract do
         end
       end
 
+      it "freezes @response" do
+        VCR.use_cassette("campground ca tent") do
+          expect(subject.response).to be_frozen
+        end
+      end
+
+      it "sets :response" do
+        VCR.use_cassette("campground ca tent") do
+          expect { 
+            subject.response
+          }.to change { subject.instance_variable_get(:@response) }.from(nil)
+        end
+      end
+
+      it "is only executed once" do
+        VCR.use_cassette("campground ca tent") do
+          expect(Supercamp::Response).to receive(:new).once.and_return "response"
+          expect(subject.response).to eq "response"
+          expect(subject.response).to eq "response"
+        end
+      end
+
+      context "w/ criteria changes" do
+
+        before do
+          VCR.use_cassette("campground ca tent") do
+            subject.response
+          end
+        end
+
+        it "removes the @response" do
+          expect {
+            subject.name("Randal")
+          }.to change { subject.instance_variable_get(:@response) }.to(nil)
+        end
+
+      end
+
     end
 
     context "w/ invalid response" do
@@ -170,6 +215,44 @@ describe Supercamp::Criteria::Abstract do
         end
       end
 
+    end
+
+  end
+
+
+  describe "#count" do
+
+    let :response do
+      double(Supercamp::Response).tap do |m|
+        expect(m).to receive(:count).and_return 13
+      end
+    end
+
+    before do
+      expect(subject).to receive(:response).and_return response
+    end
+
+    it "returns :count from Response" do
+      expect(subject.count).to eq 13
+    end
+
+  end
+
+
+  describe "#results" do
+
+    let :response do
+      double(Supercamp::Response).tap do |m|
+        expect(m).to receive(:results).and_return "the-results"
+      end
+    end
+
+    before do
+      expect(subject).to receive(:response).and_return response
+    end
+
+    it "returns :results from Response" do
+      expect(subject.results).to eq "the-results"
     end
 
   end

@@ -2,26 +2,26 @@ require "spec_helper"
 
 describe Supercamp::Response do
 
+  around(:each) do |example|
+    VCR.use_cassette "response of limited campground search" do
+      example.run
+    end
+  end
+
+  let :criteria do
+    Supercamp.campgrounds.search do
+      site_type "tent"
+      state     "CA"
+      amenity   "fishing"
+      has       "pets", "waterfront"
+    end
+  end
+
+  subject do
+    Supercamp::Response.new criteria.query.run
+  end
+
   describe ".new" do
-
-    around(:each) do |example|
-      VCR.use_cassette "response of limited campground search" do
-        example.run
-      end
-    end
-
-    let :criteria do
-      Supercamp.campgrounds.search do
-        site_type "tent"
-        state     "CA"
-        amenity   "fishing"
-        has       "pets", "waterfront"
-      end
-    end
-
-    subject do
-      Supercamp::Response.new criteria.query.run
-    end
 
     it "sets :count" do
       expect(subject.count).to eq 21
@@ -48,6 +48,15 @@ describe Supercamp::Response do
         expect(entry[:facility_name]).to eq "BUSHAY RECREATION AREA"
       end
 
+    end
+
+  end
+
+
+  describe "#results" do
+
+    it "returns values from :entries" do
+      expect(subject.results).to eq subject.entries
     end
 
   end

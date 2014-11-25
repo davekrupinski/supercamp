@@ -8,6 +8,8 @@ module Supercamp
     attr_reader :count
     attr_reader :entries
 
+    alias_method :results, :entries
+
     def initialize(response)
       p = parse_response(response.body)
 

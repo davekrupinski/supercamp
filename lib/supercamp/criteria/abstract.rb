@@ -3,7 +3,8 @@ module Supercamp
 
     class Abstract
       
-      attr_accessor :options
+      attr_reader   :options
+      attr_writer   :response
 
       def initialize(&block)
         @options = {}
@@ -33,18 +34,32 @@ module Supercamp
       end
 
       def response(query=query)
+        return @response unless @response.nil?
         response = query.run
         if response.code == 200
-          Supercamp::Response.new response
+          @response = Supercamp::Response.new response
+          @response.freeze
         else
           raise Supercamp::Error.new self, response
         end
       end
 
+      def count
+        response.count
+      end
+
+      def results
+        response.results
+      end
+
     private
 
       def merge_option(key, value)
-        @options[key.to_s] = value
+        @options.dup.merge({ key.to_s => value }).tap do |opts|
+          @options  = opts
+          @response = nil
+          @options.freeze
+        end
       end
 
     end
