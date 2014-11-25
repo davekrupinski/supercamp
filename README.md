@@ -50,6 +50,13 @@ Supercamp.campgrounds.search do
 end
 ```
 
+Requests to the API are executed lazily when first accessed by either **count** or **results**.
+
+```ruby
+	@search.count 
+    @search.results
+```
+
 ## Campsite API
 
 The campgrounds interface supports:
