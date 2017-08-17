@@ -30,10 +30,10 @@ module Supercamp
 
       def query
         opts = { api_key: Supercamp.config.api_key }.merge(options)
-        Typhoeus::Request.new(endpoint, timeout: Supercamp.config.timeout, params: opts, follow_location: true)
+        Typhoeus::Request.new(endpoint, timeout: Supercamp.config.timeout, params: opts, followlocation: true)
       end
 
-      def response(query=query)
+      def response(query=self.query)
         return @response unless @response.nil?
         response = query.run
         if response.code == 200
