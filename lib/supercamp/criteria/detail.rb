@@ -17,8 +17,6 @@ module Supercamp
         merge_option("contractCode", type)
         self
       end
-
-
       # parkId: Facility ID
 
       # "parkId" is a synonym for "facilityID", which is returned by the Campground Search API.

@@ -22,7 +22,9 @@ module Supercamp
 
     def parse_response(xml)
       xml.gsub!("\n", "")
-      Oga.parse_xml(xml).children.first.name
+      parsed = Oga.parse_xml(xml)
+      toplevel = parsed.children.first.name
+      parsed.xpath(toplevel).first
     end
 
     def set_results_count(parsed)
