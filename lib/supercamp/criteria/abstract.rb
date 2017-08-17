@@ -2,7 +2,7 @@ module Supercamp
   module Criteria
 
     class Abstract
-      
+
       attr_reader   :options
       attr_writer   :response
 
@@ -24,8 +24,8 @@ module Supercamp
       end
 
       def endpoint
-        name = self.class.to_s.split("::").last.downcase
-        "#{Supercamp.config.base_url}/#{name}s"
+        name = self.route_end
+        "#{Supercamp.config.base_url}#{name}"
       end
 
       def query
