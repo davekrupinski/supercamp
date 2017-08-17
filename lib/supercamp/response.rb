@@ -18,15 +18,19 @@ module Supercamp
     end
 
 
-  private
+    private
 
     def parse_response(xml)
       xml.gsub!("\n", "")
-      Oga.parse_xml(xml).xpath("resultset").first
+      Oga.parse_xml(xml).children.first.name
     end
 
     def set_results_count(parsed)
-      @count = parsed.attribute("count").value.to_i
+      if parsed.attribute("count")
+        @count = parsed.attribute("count").value.to_i
+      else
+        @count = 0
+      end
     end
 
     def set_entries(parsed)
