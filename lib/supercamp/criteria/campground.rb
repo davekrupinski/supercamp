@@ -19,8 +19,12 @@ module Supercamp
         "winter_activities" => 4013
       }
 
+      def route_end
+        "/campgrounds"
+      end
+
       # landmarkLat, landmarkLong (latitude/longitude)
-      # 
+      #
       # These two parameters allow for campground searches around a fixed geo-point.
       #
       def geo(lat, lng)
@@ -32,7 +36,7 @@ module Supercamp
 
       # pstate: State or Province
       #
-      # The two character abbreviation for US state 
+      # The two character abbreviation for US state
       #
       def state(abbr)
         merge_option(:pstate, abbr)
@@ -42,9 +46,9 @@ module Supercamp
 
       # pname: Park Name
       #
-      # The name of the park.  When this parameter is specified, 
-      # the API performs a string-match query for parks containing 
-      # the character string specified. 
+      # The name of the park.  When this parameter is specified,
+      # the API performs a string-match query for parks containing
+      # the character string specified.
       #
       def name(park)
         merge_option(:pname, park)
@@ -67,10 +71,10 @@ module Supercamp
       # has: Campture Features
       #
       # Specify 1 or more optional perks:
-      # # water     
-      # # sewer     
-      # # pull      
-      # # pets      
+      # # water
+      # # sewer
+      # # pull
+      # # pets
       # # waterfront
       #
       def has(*perks)
