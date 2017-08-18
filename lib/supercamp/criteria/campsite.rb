@@ -34,6 +34,17 @@ module Supercamp
         "/campsites"
       end
 
+      # Contract code and id from details because it is not needed
+      # For 2017 baby
+      def contract_code(type)
+        merge_option("contractCode", type)
+        self
+      end
+
+      def id(val)
+        merge_option("parkId", val)
+        self
+      end
       # siteType
       #
       # If unspecified, all site types are returned.
