@@ -2,7 +2,7 @@ module Supercamp
   module Criteria
 
     class Abstract
-      
+
       attr_reader   :options
       attr_writer   :response
 
@@ -24,16 +24,16 @@ module Supercamp
       end
 
       def endpoint
-        name = self.class.to_s.split("::").last.downcase
-        "#{Supercamp.config.base_url}/#{name}s"
+        name = self.route_end
+        "#{Supercamp.config.base_url}#{name}"
       end
 
       def query
         opts = { api_key: Supercamp.config.api_key }.merge(options)
-        Typhoeus::Request.new(endpoint, timeout: Supercamp.config.timeout, params: opts)
+        Typhoeus::Request.new(endpoint, timeout: Supercamp.config.timeout, params: opts, followlocation: true)
       end
 
-      def response(query=query)
+      def response(query=self.query)
         return @response unless @response.nil?
         response = query.run
         if response.code == 200

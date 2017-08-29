@@ -18,24 +18,40 @@ module Supercamp
     end
 
 
-  private
+    private
 
     def parse_response(xml)
       xml.gsub!("\n", "")
-      Oga.parse_xml(xml).xpath("resultset").first
+      parsed = Oga.parse_xml(xml)
+      toplevel = parsed.children.first.name
+      parsed.xpath(toplevel).first
     end
 
     def set_results_count(parsed)
-      @count = parsed.attribute("count").value.to_i
+      if parsed.attribute("count")
+        @count = parsed.attribute("count").value.to_i
+      else
+        @count = 1
+      end
     end
 
-    def set_entries(parsed)
-      @entries = parsed.children.map do |child|
-        child.attributes.inject(Hashr.new) do |h, attr|
+    def get_attributes(xml_array)
+      xml_array.map do |xml_item|
+        xml_item.attributes.inject(Hashr.new) do |h, attr|
           key = attr.name.gsub(/(.)([A-Z])/,'\1_\2').downcase
           h[key] = attr.value; h
         end
       end
+    end
+
+    def set_entries(parsed)
+      entry_parent = get_attributes(parsed.root_node.children)
+      @entries = get_attributes(parsed.children)
+      make_family(entry_parent)
+    end
+
+    def make_family(entry_parent)
+      @entries.push({ parent: entry_parent.first })
     end
 
   end

@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem "rake"
+gem "pry"
 
 group :test do
   gem "coveralls", "~> 0.7.0", require: false

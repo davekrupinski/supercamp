@@ -17,7 +17,7 @@ module Supercamp
 
       PERKS = {
         "water"       => 3007,
-        "sewer"       => 3007, 
+        "sewer"       => 3007,
         "pull"        => 3008,
         "pets"        => 3010,
         "waterfront"  => 3011
@@ -30,9 +30,23 @@ module Supercamp
         "50" => 3005
       }
 
+      def route_end
+        "/campsites"
+      end
 
+      # Contract code and id from details because it is not needed
+      # For 2017 baby
+      def contract_code(type)
+        merge_option("contractCode", type)
+        self
+      end
+
+      def id(val)
+        merge_option("parkId", val)
+        self
+      end
       # siteType
-      # 
+      #
       # If unspecified, all site types are returned.
       #
       def site_type(name)
@@ -54,8 +68,8 @@ module Supercamp
 
       # lengthOfStay: Length of Stay
       #
-      # When combined with arvdate, this parameter determines how long 
-      # the camper would like to reserve the campground. 
+      # When combined with arvdate, this parameter determines how long
+      # the camper would like to reserve the campground.
       #
       def nights(amt)
         merge_option("lengthOfStay", amt)
@@ -65,7 +79,7 @@ module Supercamp
 
       # eqplen: Equipment Length
       #
-      # If the camper wants to find campgrounds where his 50 foot RV will fit, 
+      # If the camper wants to find campgrounds where his 50 foot RV will fit,
       # issue a query where eqplen=50
       #
       def min_equip_length(val)
@@ -73,7 +87,7 @@ module Supercamp
         self
       end
 
-      
+
       # Maxpeople: Number of campers
       #
       #
