@@ -1,6 +1,5 @@
 module Supercamp
   class Error < StandardError
-
     attr_reader :code
     attr_reader :api_code
     attr_reader :criteria
@@ -11,6 +10,5 @@ module Supercamp
       @criteria = criteria
       super(response.body)
     end
-
   end
 end

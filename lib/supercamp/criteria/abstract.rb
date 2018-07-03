@@ -1,7 +1,6 @@
 module Supercamp
   module Criteria
     class Abstract
-
       attr_reader   :options
       attr_writer   :response
 

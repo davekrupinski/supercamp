@@ -1,6 +1,5 @@
 module Supercamp
   class Configuration
-
     attr_accessor :api_key
     attr_accessor :timeout
 
@@ -15,6 +14,5 @@ module Supercamp
     def base_url
       'http://api.amp.active.com/camping'
     end
-
   end
 end

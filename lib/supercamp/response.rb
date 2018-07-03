@@ -3,7 +3,6 @@ require 'hashr'
 
 module Supercamp
   class Response
-
     attr_reader :count
     attr_reader :entries
 
@@ -51,6 +50,5 @@ module Supercamp
     def make_family(entry_parent)
       @entries.push({ parent: entry_parent.first })
     end
-
   end
 end
