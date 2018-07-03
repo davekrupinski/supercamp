@@ -14,7 +14,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
 
   Supercamp.configure do |c|
-    c.api_key = ENV["API_KEY"]
+    c.api_key = ENV['API_KEY']
   end
 
   VCR.configure do |c|

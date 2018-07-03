@@ -1,5 +1,4 @@
 module Supercamp
-
   class Configuration
 
     attr_accessor :api_key
@@ -14,9 +13,8 @@ module Supercamp
     end
 
     def base_url
-      "http://api.amp.active.com/camping"
+      'http://api.amp.active.com/camping'
     end
 
   end
-
 end

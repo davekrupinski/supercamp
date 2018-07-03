@@ -2,70 +2,39 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.amp.active.com/camping/campgrounds?api_key=cfk73mgpg3ywc8xvq3m9n9cw&siteType=2003&pstate=CA&amenity=4004&pets=3010&waterfront=3011
+    uri: http://api.amp.active.com/camping/campgrounds?api_key=vqywxthpqp6hks6xkmjpw5vx&siteType=2003&pstate=CA&amenity=4004&pets=3010&waterfront=3011
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
   response:
     status:
-      code: 200
-      message: OK
+      code: 403
+      message: Forbidden
     headers:
-      Accept-Ranges:
-      - bytes
-      Cache-Control:
-      - max-age=0, no-cache, no-store
       Content-Type:
-      - text/xml;charset=UTF-8
+      - text/xml
       Date:
-      - Mon, 17 Nov 2014 03:30:13 GMT
-      Expires:
-      - Mon, 17 Nov 2014 03:30:13 GMT
-      Pragma:
-      - no-cache
+      - Wed, 30 Aug 2017 08:11:31 GMT
       Server:
-      - Apache
-      Set-Cookie:
-      - JSESSIONID=2AA64FC4F91F5537B0AE6988A7661437.web07-ny; Path=/
-      - _rauv_=2AA64FC4F91F5537B0AE6988A7661437.web07-ny_; Domain=reserveamerica.com;
-        Expires=Sun, 12-Nov-2034 03:30:13 GMT; Path="/; HttpOnly;"; Secure
-      - NSC_QSPE-VXQ-IUUQ=ffffffff09293c2845525d5f4f58455e445a4a4225b9;Version=1;Max-Age=3600;path=/;httponly
+      - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
+      X-Mashery-Error-Code:
+      - ERR_403_DEVELOPER_INACTIVE
       Content-Length:
-      - '9423'
+      - '27'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-        <resultset amenity="4004" count="21" pstate="CA" resultType="campgrounds" siteType="2003" waterfront="3011">
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="73100" facilityName="BUSHAY RECREATION AREA" faciltyPhoto="/webphotos/NRSO/pid73100/0/80x53.jpg" latitude="39.2350056" longitude="-123.1659333" regionName="" reservationChannel="" shortName="BUAY" sitesWithAmps="Y" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="Y" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="72184" facilityName="CAMP 4 GROUP CAMPGROUND" faciltyPhoto="/webphotos/NRSO/pid72184/0/80x53.jpg" latitude="41.2338889" longitude="-121.9838889" regionName="" reservationChannel="" shortName="CFCG" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Riverfront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="71590" facilityName="COLLEGE" faciltyPhoto="/webphotos/NRSO/pid71590/0/80x53.jpg" latitude="37.2519444" longitude="-119.1688889" regionName="" reservationChannel="" shortName="COLL" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="75172" facilityName="CONVICT LAKE CAMPGROUND" faciltyPhoto="/webphotos/NRSO/pid75172/0/80x53.jpg" latitude="37.5988889" longitude="-118.8508333" regionName="" reservationChannel="" shortName="CONL" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="73609" facilityName="COYOTE POINT" faciltyPhoto="/webphotos/NRSO/pid73609/0/80x53.jpg" latitude="37.9844444" longitude="-120.8447222" regionName="" reservationChannel="" shortName="COYP" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="71591" facilityName="DEER CREEK" faciltyPhoto="/images/nophoto.jpg" latitude="37.2519444" longitude="-119.1769444" regionName="" reservationChannel="" shortName="DEAR" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="73632" facilityName="DIMOND O" faciltyPhoto="/webphotos/NRSO/pid73632/0/80x53.jpg" latitude="37.825" longitude="-119.8611111" regionName="" reservationChannel="" shortName="DIMO" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Riverfront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="CA" contractType="STATE" facilityID="120025" facilityName="DOHENY SB" faciltyPhoto="/webphotos/CA/pid120025/0/80x53.jpg" latitude="33.4622222" longitude="-117.68" regionName="" reservationChannel="" shortName="DOHE" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Oceanfront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="70934" facilityName="DRY CREEK GROUP CAMPGROUND (Whiskeytown NRA)" faciltyPhoto="/webphotos/NRSO/pid70934/0/80x53.jpg" latitude="40.6255556" longitude="-122.5808333" regionName="" reservationChannel="" shortName="CG56" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="Y" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="72124" facilityName="FIR COVE CAMPGROUND" faciltyPhoto="/webphotos/NRSO/pid72124/0/80x53.jpg" latitude="40.3441667" longitude="-123.4030556" regionName="" reservationChannel="" shortName="FCCG" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="96769" facilityName="FISH LAKE CAMPGROUND" faciltyPhoto="/webphotos/NRSO/pid96769/0/80x53.jpg" latitude="41.2641667" longitude="-123.6844444" regionName="" reservationChannel="" shortName="D769" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="70270" facilityName="GERLE CREEK" faciltyPhoto="/webphotos/NRSO/pid70270/0/80x53.jpg" latitude="38.975" longitude="-120.3916667" regionName="" reservationChannel="" shortName="GERL" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Riverfront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="75213" facilityName="INDIAN SCOTTY GROUP SITE" faciltyPhoto="/webphotos/NRSO/pid75213/0/80x53.jpg" latitude="41.6322222" longitude="-123.0819444" regionName="" reservationChannel="" shortName="INDG" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Riverfront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="110133" facilityName="JUANITA LAKE GROUP CAMPSITE" faciltyPhoto="/webphotos/NRSO/pid110133/0/80x53.jpg" latitude="41.8161111" longitude="-122.1216667" regionName="" reservationChannel="" shortName="E133" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="109334" facilityName="KIT CARSON CAMPGROUND" faciltyPhoto="/webphotos/NRSO/pid109334/0/80x53.jpg" latitude="38.7767778" longitude="-119.8946111" regionName="" reservationChannel="" shortName="KITC" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Riverfront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="71724" facilityName="LONG POINT (CA)" faciltyPhoto="/webphotos/NRSO/pid71724/0/80x53.jpg" latitude="40.1783333" longitude="-120.5783333" regionName="" reservationChannel="" shortName="LALO" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="71593" facilityName="RANCHERIA" faciltyPhoto="/webphotos/NRSO/pid71593/0/80x53.jpg" latitude="37.2477778" longitude="-119.1611111" regionName="" reservationChannel="" shortName="RANC" sitesWithAmps="Y" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="Y" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="73569" facilityName="RUNNING DEER CAMPGROUND" faciltyPhoto="/images/nophoto.jpg" latitude="39.7352778" longitude="-120.9530556" regionName="" reservationChannel="" shortName="RUNN" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Lakefront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="NRSO" contractType="FEDERAL" facilityID="75247" facilityName="SPANISH CREEK CAMPGROUND" faciltyPhoto="/images/nophoto.jpg" latitude="" longitude="" regionName="" reservationChannel="" shortName="SPNC" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Riverfront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="CA" contractType="STATE" facilityID="120096" facilityName="TURLOCK LAKE SRA" faciltyPhoto="/webphotos/CA/pid120096/0/80x53.jpg" latitude="37.6272222" longitude="-120.5813889" regionName="" reservationChannel="" shortName="TURL" sitesWithAmps="N" sitesWithPetsAllowed="Y" sitesWithSewerHookup="N" sitesWithWaterHookup="N" sitesWithWaterfront="Riverfront" state="CA"/>
-        <result agencyIcon="" agencyName="" availabilityStatus="N" contractID="ELS2" contractType="PRIVATE" facilityID="260861" facilityName="Wilderness Lakes Campground" faciltyPhoto="/webphotos/ELS2/pid260861/0/80x53.jpg" latitude="33.6741667" longitude="-117.1366667" regionName="CA Region" reservationChannel="" shortName="A861" sitesWithAmps="Y" sitesWithPetsAllowed="Y" sitesWithSewerHookup="Y" sitesWithWaterHookup="Y" sitesWithWaterfront="Springs" state="CA"/>
-        </resultset>
+      string: "<h1>Developer Inactive</h1>"
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.amp.active.com/camping/campgrounds?api_key=cfk73mgpg3ywc8xvq3m9n9cw&siteType=2003&pstate=CA&amenity=4004&pets=3010&waterfront=3011
-  recorded_at: Mon, 17 Nov 2014 03:30:18 GMT
-recorded_with: VCR 2.9.3
+      effective_url: http://api.amp.active.com/camping/campgrounds?api_key=vqywxthpqp6hks6xkmjpw5vx&siteType=2003&pstate=CA&amenity=4004&pets=3010&waterfront=3011
+  recorded_at: Wed, 30 Aug 2017 08:11:29 GMT
+recorded_with: VCR 3.0.3

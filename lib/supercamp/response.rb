@@ -2,7 +2,6 @@ require 'oga'
 require 'hashr'
 
 module Supercamp
-
   class Response
 
     attr_reader :count
@@ -17,19 +16,18 @@ module Supercamp
       set_entries(p)
     end
 
-
-    private
+  private
 
     def parse_response(xml)
-      xml.gsub!("\n", "")
+      xml.gsub!('\n', '')
       parsed = Oga.parse_xml(xml)
       toplevel = parsed.children.first.name
       parsed.xpath(toplevel).first
     end
 
     def set_results_count(parsed)
-      if parsed.attribute("count")
-        @count = parsed.attribute("count").value.to_i
+      if parsed.attribute('count')
+        @count = parsed.attribute('count').value.to_i
       else
         @count = 1
       end
@@ -55,5 +53,4 @@ module Supercamp
     end
 
   end
-
 end

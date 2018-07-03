@@ -1,38 +1,32 @@
 module Supercamp
   module Criteria
-
     class Campground < Campsite
 
       AMENITIES = {
-        "biking"    => 4001,
-        "boating"   => 4002,
-        "equipment_rentals" => 4003,
-        "fishing"   => 4004,
-        "golf"      => 4005,
-        "hiking"    => 4006,
-        "horseback_riding" => 4007,
-        "hunting"   => 4008,
-        "rec_activities" => 4009,
-        "scenic_trails" => 4010,
-        "sports"    => 4011,
-        "beach_or_water" => 4012,
-        "winter_activities" => 4013
+        'biking'    => 4001,
+        'boating'   => 4002,
+        'equipment_rentals' => 4003,
+        'fishing'   => 4004,
+        'golf'      => 4005,
+        'hiking'    => 4006,
+        'horseback_riding' => 4007,
+        'hunting'   => 4008,
+        'rec_activities' => 4009,
+        'scenic_trails' => 4010,
+        'sports'    => 4011,
+        'beach_or_water' => 4012,
+        'winter_activities' => 4013
       }
-
-      def route_end
-        "/campgrounds"
-      end
 
       # landmarkLat, landmarkLong (latitude/longitude)
       #
       # These two parameters allow for campground searches around a fixed geo-point.
       #
       def geo(lat, lng)
-        merge_option("landmarkLat", lat)
-        merge_option("landmarkLong", lng)
+        merge_option('landmarkLat', lat)
+        merge_option('landmarkLong', lng)
         self
       end
-
 
       # pstate: State or Province
       #
@@ -42,7 +36,6 @@ module Supercamp
         merge_option(:pstate, abbr)
         self
       end
-
 
       # pname: Park Name
       #
@@ -55,7 +48,6 @@ module Supercamp
         self
       end
 
-
       # amenity: Campground Feature
       #
       # There are all sorts of things to do at campgrounds.
@@ -66,7 +58,6 @@ module Supercamp
         merge_option(:amenity, code)
         self
       end
-
 
       # has: Campture Features
       #
@@ -85,7 +76,12 @@ module Supercamp
         self
       end
 
-    end
+    private
 
+      def endpoint
+        '/campgrounds'
+      end
+
+    end
   end
 end

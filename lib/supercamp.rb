@@ -10,26 +10,23 @@ require 'supercamp/criteria/campground'
 require 'supercamp/criteria/detail'
 
 module Supercamp
-  extend self
-
-  def config
+  def self.config
     @config ||= Configuration.new
   end
 
-  def configure
+  def self.configure
     yield config
   end
 
-  def campsites
+  def self.campsites
     Supercamp::Criteria::Campsite.new
   end
 
-  def campgrounds
+  def self.campgrounds
     Supercamp::Criteria::Campground.new
   end
 
-  def details
+  def self.details
     Supercamp::Criteria::Detail.new
   end
-
 end

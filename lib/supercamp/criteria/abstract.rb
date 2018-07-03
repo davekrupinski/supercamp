@@ -1,6 +1,5 @@
 module Supercamp
   module Criteria
-
     class Abstract
 
       attr_reader   :options
@@ -23,14 +22,13 @@ module Supercamp
         self.class.search &block
       end
 
-      def endpoint
-        name = self.route_end
-        "#{Supercamp.config.base_url}#{name}"
+      def url
+        "#{Supercamp.config.base_url}#{endpoint}"
       end
 
       def query
         opts = { api_key: Supercamp.config.api_key }.merge(options)
-        Typhoeus::Request.new(endpoint, timeout: Supercamp.config.timeout, params: opts, followlocation: true)
+        Typhoeus::Request.new(url, timeout: Supercamp.config.timeout, params: opts, followlocation: true)
       end
 
       def response(query=self.query)
@@ -54,6 +52,10 @@ module Supercamp
 
     private
 
+      def endpoint
+        # Implement in Subclass
+      end
+
       def merge_option(key, value)
         @options.dup.merge({ key.to_s => value }).tap do |opts|
           @options  = opts
@@ -61,8 +63,6 @@ module Supercamp
           @options.freeze
         end
       end
-
     end
-
   end
 end

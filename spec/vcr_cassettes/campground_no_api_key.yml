@@ -9,30 +9,32 @@ http_interactions:
     headers:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
   response:
     status:
       code: 403
       message: Forbidden
     headers:
-      Accept-Ranges:
-      - bytes
       Content-Type:
       - text/xml
       Date:
-      - Mon, 17 Nov 2014 03:26:31 GMT
+      - Wed, 30 Aug 2017 08:11:30 GMT
       Server:
       - Mashery Proxy
+      X-Error-Detail-Header:
+      - Account Inactive
       X-Mashery-Error-Code:
       - ERR_403_DEVELOPER_INACTIVE
       Content-Length:
-      - '31'
+      - '27'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: "<h1>403 Developer Inactive</h1>"
+      string: "<h1>Developer Inactive</h1>"
     http_version: '1.1'
     adapter_metadata:
       effective_url: http://api.amp.active.com/camping/campgrounds?api_key=&pstate=CA
-  recorded_at: Mon, 17 Nov 2014 03:26:36 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Wed, 30 Aug 2017 08:11:28 GMT
+recorded_with: VCR 3.0.3

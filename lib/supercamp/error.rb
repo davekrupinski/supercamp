@@ -1,5 +1,4 @@
 module Supercamp
-
   class Error < StandardError
 
     attr_reader :code
@@ -8,11 +7,10 @@ module Supercamp
 
     def initialize(criteria, response)
       @code     = response.options[:code]
-      @api_code = response.options[:headers]["X-Mashery-Error-Code"]
+      @api_code = response.options[:headers]['X-Mashery-Error-Code']
       @criteria = criteria
       super(response.body)
     end
 
   end
-
 end
